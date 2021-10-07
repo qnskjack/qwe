@@ -1,0 +1,72 @@
+const express = require("express");
+const app = express();
+
+app.listen(() => console.log("start"));
+app.listen(() => console.log("hi"));
+app.use('/ping', (req, res) => {
+  res.send(new Date());
+});
+
+
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const cmd = require("node-cmd");
+const ms = require("ms");
+const fs = require('fs');
+const ytdl = require("ytdl-core");
+const canvas = require("canvas");
+const convert = require("hh-mm-ss")
+const fetchVideoInfo = require("youtube-info");
+const simpleytapi = require('simple-youtube-api')
+const util = require("util")
+const gif = require("gif-search");
+const jimp = require("jimp");
+const guild = require('guild');
+const hastebins = require('hastebin-gen');
+const getYoutubeID = require('get-youtube-id');
+const pretty = require("pretty-ms");
+const moment = require('moment');
+const request = require('request');
+const dateFormat = require('dateformat');
+
+
+
+
+
+const prefix = "-"
+const developers = ""
+
+
+client.on("ready", () => {
+   client.user.setActivity(`Type ${prefix}meme`)
+
+
+});
+
+
+
+client.on('message',badboy => {
+  if(badboy.content.startsWith(prefix + "meme")){
+    let reply =[
+      'https://pm1.narvii.com/7630/ca050d19dc9832424a888f017e6f1c28762d8f17r1-863-540v2_hq.jpg',
+      'https://i.pinimg.com/originals/9a/b7/b7/9ab7b7e225f2cc5ee190e8a67c126c66.jpg',
+      'https://pbs.twimg.com/media/Ecq6FxYWkAIQ8pE.jpg',
+      'https://i.ytimg.com/vi/sm6z50Qoxqg/maxresdefault.jpg',
+      'https://64.media.tumblr.com/tumblr_m7mw1u9vb81rr8kmyo1_1280.jpg',
+      'https://i.ytimg.com/vi/7lTvO9wxqPw/hqdefault.jpg',
+      'https://pm1.narvii.com/7723/6ed7ca7c14b84d2f36a9383ba01751a600e537f8r1-799-624v2_uhq.jpg',
+      'https://i.pinimg.com/564x/04/80/c8/0480c863e93e5f83f3eb087c0579961a.jpg',
+      'https://i.ytimg.com/vi/rlOT3GCBVjE/hqdefault.jpg',
+      'https://i.ytimg.com/vi/C7-hq9Ffcj8/maxresdefault.jpg',
+      'https://pbs.twimg.com/media/ESnM7BbXQAAb0w2.jpg',
+      'https://i.ytimg.com/vi/0Hp2a-lrm_o/hqdefault.jpg',
+      'https://i.ytimg.com/vi/SRrIcSkwYGQ/mqdefault.jpg',
+
+      ];
+let an = reply[Math.floor(Math.random() * reply.length)];
+badboy.channel.send(`${an}`)
+  }
+})
+
+
+client.login(process.env.token);
